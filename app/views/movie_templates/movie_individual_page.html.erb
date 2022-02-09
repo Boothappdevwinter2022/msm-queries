@@ -1,0 +1,57 @@
+<h1>Movie #<%= @movie_id %> details</h1>
+
+<a href="/movies" class="btn btn-block btn-outline-secondary">
+  Go back
+</a>
+
+<hr>
+
+<dl>
+  <dt>
+    Title
+  </dt>
+  <dd>
+    <%= @current_movie.at(0).title %>
+  </dd>
+  <dt>
+    Year
+  </dt>
+  <dd>
+    <%= @current_movie.at(0).year %>
+  </dd>
+  <dt>
+    Duration
+  </dt>
+  <dd>
+    <%= @current_movie.at(0).duration %>
+  </dd>
+  <dt>
+    Description
+  </dt>
+  <dd>
+    <%= @current_movie.at(0).description %>
+  </dd>
+  <dt>
+    Image
+  </dt>
+  <dd>
+    <img src=<%= @current_movie.at(0).image %>>
+  </dd>
+  <dt>
+    Director
+  </dt>
+  <dd>
+    <%= @director_name %>
+  </dd>
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    over <%= @year_from_creation %> years ago
+  </dd>
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    over <%= @year_from_update %> years ago
+  </dd>

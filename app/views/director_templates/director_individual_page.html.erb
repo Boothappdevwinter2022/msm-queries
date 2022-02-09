@@ -35,13 +35,13 @@
     Created at
   </dt>
   <dd>
-    <%= @list_of_directors.at(@director_id.to_i-1).created_at %>
+    over <%= @year_from_creation %> years ago
   </dd>
   <dt>
     Updated at
   </dt>
   <dd>
-    <%= @list_of_directors.at(@director_id.to_i-1).updated_at %>
+    over <%= @year_from_update %> years ago
   </dd>
 
 <hr>
@@ -97,7 +97,7 @@
     </td>
 
     <td>
-      <a href="/">
+      <a href="/movies/<%= movie.id %>">
         Show details
       </a>
     </td>
