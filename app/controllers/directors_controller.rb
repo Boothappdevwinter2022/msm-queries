@@ -16,4 +16,23 @@ class DirectorsController < ApplicationController
     
     render({ :template => "director_templates/director_individual_page.html.erb"})
   end
+
+  def youngest_director
+    @list_of_directors = Director.all
+    @latest_dob = Director.maximum("dob")
+    @youngest_director_id = @list_of_directors.where({ :dob => @latest_dob}).at(0).id
+    @youngest_director_name = @list_of_directors.where({ :dob => @latest_dob}).at(0).name
+
+    render({ :template => "director_templates/youngest_director.html.erb"})
+  end
+
+  def eldest_director
+    @list_of_directors = Director.all
+    @earliest_dob = Director.minimum("dob")
+    @eldest_director_id = @list_of_directors.where({ :dob => @earliest_dob}).at(0).id
+    @eldest_director_name = @list_of_directors.where({ :dob => @earliest_dob}).at(0).name
+
+    render({ :template => "director_templates/eldest_director.html.erb"})
+  end
+
 end
