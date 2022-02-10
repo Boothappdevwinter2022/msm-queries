@@ -1,1 +1,100 @@
-<h1>Actor # details</h1>
+<h1>Actor #<%= @actor_id %> details</h1>
+
+<a href="/actors" class="btn btn-block btn-outline-secondary">
+  Go back
+</a>
+
+<hr>
+
+<dl>
+  <dt>
+    Name
+  </dt>
+  <dd>
+    <%= @current_actor.at(0).name %>
+  </dd>
+  <dt>
+    Dob
+  </dt>
+  <dd>
+    <%= @current_actor.at(0).dob %>
+  </dd>
+  <dt>
+    Bio
+  </dt>
+  <dd>
+    <%= @current_actor.at(0).bio %>
+  </dd>
+  <dt>
+    Image
+  </dt>
+  <dd>
+    <img src=<%= @current_actor.at(0).image %>>
+  </dd>
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    over <%= @year_from_creation %> years ago
+  </dd>
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    over <%= @year_from_update %> years ago
+  </dd>
+
+<hr>
+
+<h2>Filmography</h2>
+
+<table border="1">
+  <tr>
+    <th>
+      Title
+    </th>
+
+    <th>
+      Year
+    </th>
+
+    <th>
+      Director
+    </th>
+
+    <th>
+      Character name
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <tr>
+  <% @list_of_movies.each do |movie| %>
+    <tr>
+      <td> 
+        <%= Movie.where({ :id => movie.movie_id}).at(0).title %>
+      </td>
+      
+      <td>
+        <%= Movie.where({ :id => movie.movie_id}).at(0).year %>
+      </td>
+      
+      <td>
+        <%= Director.where({ :id => Movie.where({ :id => movie.movie_id}).at(0).director_id}).at(0).name %>
+      </td>
+
+      <td>
+        <%= movie.name %>
+      </td>
+
+      <td>
+        <a href="/movies/<%= movie.movie_id %>">
+          Show details
+        </a>
+      </td>
+    </tr>
+  <% end %>
+  </tr>
+</table>
