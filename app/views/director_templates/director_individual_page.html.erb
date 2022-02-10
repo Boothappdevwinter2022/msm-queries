@@ -11,25 +11,25 @@
     Name
   </dt>
   <dd>
-    <%= @list_of_directors.at(@director_id.to_i-1).name %>
+    <%= @current_director.name %>
   </dd>
   <dt>
     Dob
   </dt>
   <dd>
-    <%= @list_of_directors.at(@director_id.to_i-1).dob %>
+    <%= @current_director.dob %>
   </dd>
   <dt>
     Bio
   </dt>
   <dd>
-    <%= @list_of_directors.at(@director_id.to_i-1).bio %>
+    <%= @current_director.bio %>
   </dd>
   <dt>
     Image
   </dt>
   <dd>
-    <img src=<%= @list_of_directors.at(@director_id.to_i-1).image %>>
+    <img src=<%= @current_director.image %>>
   </dd>
   <dt>
     Created at
@@ -93,7 +93,7 @@
     </td>
 
     <td>
-      <%= @list_of_directors.at(@director_id.to_i-1).name %>
+      <%= @current_director.name %>
     </td>
 
     <td>
